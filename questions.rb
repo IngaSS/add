@@ -1,4 +1,7 @@
 class Questions
+
+  attr_reader :a, :b, :c
+
   def initialize
     @QUESTIONS = [
       '1. Какое вы предпочитаете рукопожатие?
@@ -56,6 +59,17 @@ class Questions
     @c = []
   end
 
+  def count(user_input)
+    case
+    when user_input == "а" then
+      @a << user_input
+    when user_input == "б" then
+      @b << user_input
+    else
+      @c << user_input
+    end
+  end
+
   def ask
     @QUESTIONS.each do |question|
       puts question
@@ -64,26 +78,8 @@ class Questions
         puts question
         user_input = STDIN.gets.chomp
       end
-      if user_input == "а"
-        @a << user_input
-      elsif user_input == "б"
-        @b << user_input
-      else
-        @c << user_input
-      end
     end
-
-  end
-
-  def a
-    return @a
-  end
-
-  def b
-    return @b
-  end
-
-  def c
-    return @c
+    if count(user_input)
+    end
   end
 end
